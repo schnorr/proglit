@@ -13,7 +13,7 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
    - Use as login something that uniquely identify yourself in Miage L3.
 
 3. Add your public SSH key
-   - Use **ssh-keygen** to generate one, then take a look to the =.ssh= directory
+   - Use **ssh-keygen** to generate one, then take a look to the `.ssh` directory
    - Add it here: https://github.com/settings/keys
 
 2. Fork the reference repository
