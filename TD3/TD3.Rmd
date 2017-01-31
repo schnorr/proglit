@@ -122,13 +122,13 @@ Which are slightly different from the true values.
 The measurements detailed in the introduction have been obtained for a number of different message sizes. We provide five of them here, with the following names:
 
 ```{bash}
-ls PP_size*.csv
+ls data/PP_size*.csv
 ```
 
 From 1 to 5 bytes. You should repeat all the steps of previous section using at least one of these files. Write your stastitical interpretation of the measurements. Here's how you can read one of them.
 
 ```{r}
-df1 <- read.csv("PP_size_1.csv");
+df1 <- read.csv("data/PP_size_1.csv");
 head(df1);
 ```
 
@@ -137,6 +137,6 @@ head(df1);
 Geophysics parallel applications are generally organized in timesteps. At each timestep, the mathematical model is calculated taking into account the time interval. As the simulation evolves, one can measure how much time it takes to calculate the mathematical model for each iteration. Here we provide a data set that contains the duration of each iteration in a simulation composed of a little less than 500 iterations. Here's the code to read that data set:
 
 ```{r}
-df <- read.csv("IterDuration.csv");
+df <- read.csv("data/IterDuration.csv");
 head(df);
 ```
