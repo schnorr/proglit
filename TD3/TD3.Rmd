@@ -1,0 +1,142 @@
+---
+title: "Measuring and Analysis of Ping-Pong Time"
+author: "Jean-Marc Vincent, Lucas Mello Schnorr"
+date: "January 2017"
+output:
+  pdf_document:
+    number_sections: yes
+  html_document: default
+geometry: margin=1.5in, top=0.5in, bottom=0.5in
+subtitle: A RStudio Demonstration and Statistical Analysis Draft
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This document is used to do a demonstration of Rstudio. It has an introduction, followed by a step-by-step receipt to conduct an analysis following the principles of literate programming.
+
+# Introduction
+
+An experimental protocol is the description of the experience that has been conducted. It explains how the measurements have been implemented. For this Rstudio demonstration, we have measured the ping-pong time. It corresponds to the time taken by a message of a given size to go from one machine to another and back to the original machine. The following C-based code represents how the ping-pong time is measured, for a given `size` message in an environment with two processes (the `sender` and the `receiver`). We can see that the measured time is the one observed by the sender.
+```{c eval=FALSE}
+if (sender) {
+  atime = get_time();
+  send_message(size);
+  btime = get_time();
+  recv_message(size);
+  ctime = get_time();
+  //Print (btime - atime) + (ctime - btime)
+}else{
+  recv_message(size);
+  send_message(size);
+}
+```
+Network measurements can be affected by a number of external factors. The most easily observed ones are the operating system complexity, its network layer, and also the wired or wireless hardware. All these factors increase the measurement variability, which should be quantified and taken into account during the analysis. As a consequence, the experiment has been replicated many times (by injecting the code above in a for loop).
+The computer program generates a textual file in the CSV (Comma-Separated Values) format. Each line of this CSV file contains one measurement, as the output of the Print command above.
+
+# Synthetic Ping-Pong Measurements (Demonstration)
+
+We use synthetic measurements created as detailed below for this demonstration. For such reason, skip this section is you are playing with the given real measurements.
+
+## Create data
+To create the synthetic ping-pong measurements, the code below is executed to generate 50 measurements considering an average of 4 and standard deviation of 1.5. The resulting values are kept in the `times` vector, which is written as a CSV file with the name `pp-synthetic.csv`.
+
+```{r}
+set.seed(42);
+times <- rnorm(n = 50, mean = 4, sd = 1.5);
+write.csv(times, "pp-synthetic.csv", row.names = FALSE);
+```
+
+The `set.seed` call is here only to keep the synthetic analysis fully reproducible.
+
+## Read data
+To read the synthetic ping-pong measurements, the code below reads the file `pp-synthetic.csv` and creates the data frame `df`. This data frame has a single column called `time` which contains all measurements that have been previously generated.  The call to `head(df)` lists the first rows of the data frame.
+
+```{r}
+df <- read.csv("pp-synthetic.csv", header=TRUE, col.names=c("time"))
+head(df);
+```
+
+## Overview of all the measurements
+
+The best way to get an overview is to plot the data (see below). Unaware of the true mean, define the following metrics, providing a discussion:
+
+- Estimate the ping-pong measurement (mean, median)
+- Quantify the variability (sd)
+
+```{r, fig.width=6, fig.height=3.5}
+plot(df$time, ylab="Time (seconds)", xlab="Measurement Number");
+```
+
+
+
+## Statistical Summary
+
+A summary of a set of values can be easily obtained in R with (`df$time` is a vector with the measurements -- it represents the column `time` of the data frame `df`). So, calling the function `summary` on this vector gives:
+
+```{r}
+summary(df$time);
+```
+We can see that the mean estimation is `3.946`, while the median gives `3.849`. Other values are the minimum, the first quartile, the third quartile and the maximum number.
+
+## Boxplot
+
+A much nicer way to represent the metrics of the summary above is using a boxplot. It takes all the values and create a visual representation. Can you explain what represents each element of the boxplot? How it helps you to better understand the data?
+```{r, fig.width=2, fig.height=3.5}
+boxplot(df$time, ylab="Time (seconds)")
+```
+
+## Histogram
+
+A histogram counts how many times the observed value falls into different bins. For time measurements, a bin is represented by an interval of values, for instance (2,3). Whenever the measurement falls into a bin, a counter is incremented. Below we can see the histogram for the ping-pong synthetic measurement. We have used 7 bins (as explicited by the `breaks` parameter).
+
+```{r, fig.width=3}
+hist(df$time, breaks=7, xlab="Time (seconds)", main="Histogram of Ping-Pong")
+```
+The problem of histograms is that by changing the number of bins, the perception based on the plot can radically change. Let's for instance force the number of bins to 2:
+
+```{r, fig.width=3}
+hist(df$time, breaks=2, xlab="Time (seconds)", main="Histogram of Ping-Pong")
+```
+We can see that two bins hardly represents the reality.
+
+## Variability
+
+As we previously mentioned, ping-pong measurements suffer external influences that might affect estimations. As a consequence, we need to evaluate the variability. A common measure of variability is the standard deviation, calculated like this:
+```{r}
+sd(df$time)
+```
+
+## Wrap up
+We have synthetically generated measurements for ping-pong, by using the `rnorm` function of R. We asked for a true mean of 4, with a standard deviation of 1.5. so, unaware of such values (using only statistics), we can estimate the mean and standard deviation as:
+```{r}
+mean(df$time)
+sd(df$time)
+```
+
+Which are slightly different from the true values.
+
+# Real Ping-Pong Measurements (TD)
+
+The measurements detailed in the introduction have been obtained for a number of different message sizes. We provide five of them here, with the following names:
+
+```{bash}
+ls data/PP_size*.csv
+```
+
+From 1 to 5 bytes. You should repeat all the steps of previous section using at least one of these files. Write your stastitical interpretation of the measurements. Here's how you can read one of them.
+
+```{r}
+df1 <- read.csv("data/PP_size_1.csv");
+head(df1);
+```
+
+# Iteration Duration of a Geophysics Parallel Application
+
+Geophysics parallel applications are generally organized in timesteps. At each timestep, the mathematical model is calculated taking into account the time interval. As the simulation evolves, one can measure how much time it takes to calculate the mathematical model for each iteration. Here we provide a data set that contains the duration of each iteration in a simulation composed of a little less than 500 iterations. Here's the code to read that data set:
+
+```{r}
+df <- read.csv("data/IterDuration.csv");
+head(df);
+```
