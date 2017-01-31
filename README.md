@@ -75,7 +75,7 @@ Congratulations, you're done for the TD2.
 
 ## TD3: Using RStudio for running a Statistical Analysis
 
-See the [Specification for the TD3][./TD3/TD3.Rmd]. You need to repeat
+See the [Specification for the TD3](./TD3/TD3.Rmd). You need to repeat
 the analysis that has been presented for one of the provided data
 sets: ping-pong measurements or the iteration duration of a geophysics
 application. You need to use RStudio to modify the given file, writing
