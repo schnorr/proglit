@@ -1,0 +1,156 @@
+# -*- mode: org -*-
+# -*- coding: utf-8 -*-
+#+startup: beamer
+#+STARTUP: overview
+#+STARTUP: indent
+#+TAGS: noexport(n)
+
+#+TITLE: Literate Programming
+
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,presentation]
+#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+LATEX_HEADER: \usedescriptionitemofwidthas{bl}
+#+LATEX_HEADER: \usepackage{ifthen,figlatex,amsmath,amstext,xspace}
+#+LATEX_HEADER: \usepackage{boxedminipage,xspace,multicol}
+#+LATEX_HEADER: \usepackage{subfigure}
+#+LATEX_HEADER: \usepackage{fancyvrb}
+#+LATEX_HEADER: \usetheme{Madrid}
+#+LATEX_HEADER: \usecolortheme[named=BrickRed]{structure}
+#+LATEX_HEADER:  %\usepackage[colorlinks=true,citecolor=pdfcitecolor,urlcolor=pdfurlcolor,linkcolor=pdflinkcolor,pdfborder={0 0 0}]{hyperref}
+#+LATEX_HEADER: \usepackage[round-precision=3,round-mode=figures,scientific-notation=true]{siunitx}
+#+LATEX_HEADER: \setbeamertemplate{footline}[frame number]
+#+LATEX_HEADER: \setbeamertemplate{navigation symbols}{}
+#+LATEX_HEADER: \usepackage{DejaVuSansMono}
+#+LATEX_HEADER: \AtBeginDocument{
+#+LATEX_HEADER:   \definecolor{pdfurlcolor}{rgb}{0,0,0.6}
+#+LATEX_HEADER:   \definecolor{pdfcitecolor}{rgb}{0,0.6,0}
+#+LATEX_HEADER:   \definecolor{pdflinkcolor}{rgb}{0.6,0,0}
+#+LATEX_HEADER:   \definecolor{light}{gray}{.85}
+#+LATEX_HEADER:   \definecolor{vlight}{gray}{.95}
+#+LATEX_HEADER: }
+#+LATEX_HEADER: \usepackage{appendixnumberbeamer}
+#+LATEX_HEADER: \usepackage{relsize}
+#+LATEX_HEADER: \usepackage{color,colortbl}
+#+LATEX_HEADER: \definecolor{gray98}{rgb}{0.98,0.98,0.98}
+#+LATEX_HEADER: \definecolor{gray20}{rgb}{0.20,0.20,0.20}
+#+LATEX_HEADER: \definecolor{gray25}{rgb}{0.25,0.25,0.25}
+#+LATEX_HEADER: \definecolor{gray16}{rgb}{0.161,0.161,0.161}
+#+LATEX_HEADER: \definecolor{gray60}{rgb}{0.6,0.6,0.6}
+#+LATEX_HEADER: \definecolor{gray30}{rgb}{0.3,0.3,0.3}
+#+LATEX_HEADER: \definecolor{bgray}{RGB}{248, 248, 248}
+#+LATEX_HEADER: \definecolor{amgreen}{RGB}{77, 175, 74}
+#+LATEX_HEADER: \definecolor{amblu}{RGB}{55, 126, 184}
+#+LATEX_HEADER: \definecolor{amred}{RGB}{228,26,28}
+#+LATEX_HEADER: \usepackage[procnames]{listings}
+#+LATEX_HEADER: \lstset{ %
+#+LATEX_HEADER:  backgroundcolor=\color{gray98},    % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+#+LATEX_HEADER:  basicstyle=\tt\prettysmall,      % the size of the fonts that are used for the code
+#+LATEX_HEADER:  breakatwhitespace=false,          % sets if automatic breaks should only happen at whitespace
+#+LATEX_HEADER:  breaklines=true,                  % sets automatic line breaking
+#+LATEX_HEADER:  showlines=true,                  % sets automatic line breaking
+#+LATEX_HEADER:  captionpos=b,                     % sets the caption-position to bottom
+#+LATEX_HEADER:  commentstyle=\color{gray30},      % comment style
+#+LATEX_HEADER:  extendedchars=true,               % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+#+LATEX_HEADER:  frame=single,                     % adds a frame around the code
+#+LATEX_HEADER:  keepspaces=true,                  % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+#+LATEX_HEADER:  keywordstyle=\color{amblu},       % keyword style
+#+LATEX_HEADER:  procnamestyle=\color{amred},       % procedures style
+#+LATEX_HEADER:  language=C,             % the language of the code
+#+LATEX_HEADER:  numbers=none,                     % where to put the line-numbers; possible values are (none, left, right)
+#+LATEX_HEADER:  numbersep=5pt,                    % how far the line-numbers are from the code
+#+LATEX_HEADER:  numberstyle=\tiny\color{gray20}, % the style that is used for the line-numbers
+#+LATEX_HEADER:  rulecolor=\color{gray20},          % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+#+LATEX_HEADER:  showspaces=false,                 % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+#+LATEX_HEADER:  showstringspaces=false,           % underline spaces within strings only
+#+LATEX_HEADER:  showtabs=false,                   % show tabs within strings adding particular underscores
+#+LATEX_HEADER:  stepnumber=2,                     % the step between two line-numbers. If it's 1, each line will be numbered
+#+LATEX_HEADER:  stringstyle=\color{amdove},       % string literal style
+#+LATEX_HEADER:  tabsize=2,                        % sets default tabsize to 2 spaces
+#+LATEX_HEADER:  % title=\lstname,                    % show the filename of files included with \lstinputlisting; also try caption instead of title
+#+LATEX_HEADER:  procnamekeys={call}
+#+LATEX_HEADER: }
+#+LATEX_HEADER: \newcommand{\prettysmall}{\fontsize{6}{8}\selectfont}
+#+LATEX_HEADER: \newcommand{\quitesmall}{\fontsize{8}{10}\selectfont}
+
+#+LATEX_HEADER: \usepackage{tikzsymbols}
+#+LATEX_HEADER: \def\smiley{\Smiley[1][green!80!white]}
+#+LATEX_HEADER: \def\frowny{\Sadey[1][red!80!white]}
+#+LATEX_HEADER: \def\winkey{\Winkey[1][yellow]}
+#+LATEX_HEADER: \def\smileyitem{\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths\color{black}$\smiley$}}}
+#+LATEX_HEADER: \def\frownyitem{\setbeamertemplate{itemize item}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths\color{black}$\frowny$}}}
+#+LATEX_HEADER: \def\restoreitem{\setbeamertemplate{itemize item}[ball]}
+#+LATEX_HEADER: \def\smileysubitem{\setbeamertemplate{itemize subitem}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths\color{black}$\smiley$}}}
+#+LATEX_HEADER: \def\frownysubitem{\setbeamertemplate{itemize subitem}{\scriptsize\raise1.25pt\hbox{\donotcoloroutermaths\color{black}$\frowny$}}}
+#+LATEX_HEADER: \def\restoresubitem{\setbeamertemplate{itemize subitem}[ball]}
+
+#+BIND: org-latex-title-command ""
+#+LaTeX: \urlstyle{sf}
+#+LaTeX: \let\alert=\structure
+#+LaTeX: \let\epsilon=\varepsilon
+#+LaTeX: \let\leq=\leqslant
+#+LaTeX: \let\geq=\geqslant 
+#+BEGIN_EXPORT LaTeX
+\let\oldtexttt=\texttt
+\def\texttt#1{\oldtexttt{\smaller[1]{#1}}}
+\def\starpu{StarPU\xspace}
+\def\qrmspu{qr\_mumps\xspace}
+\def\DGEMM{\texttt{dgemm}\xspace}
+\def\DGEMMs{\texttt{dgemm}s\xspace}
+\def\DPOTRF{\texttt{dpotrf}\xspace}
+\def\DSYRK{\texttt{dsyrk}\xspace}
+\def\DTRSM{\texttt{dtrsm}\xspace}
+\def\Idle{\texttt{Idle}\xspace}
+\definecolor{dpotrfcolor}{rgb}{0.8675,0,0}
+\definecolor{dgemmcolor}{rgb}{0,0.5625,0}
+\definecolor{dsyrkcolor}{rgb}{0.5625,0,0.5625}
+\definecolor{dtrsmcolor}{rgb}{0,0,0.8675}
+#+END_EXPORT
+
+#+BEGIN_EXPORT LaTeX  
+{\setbeamertemplate{footline}{} 
+\author{Lucas Mello Schnorr, Jean-Marc Vincent}
+\institute{LIG/Inria -- POLARIS}
+\date{January 2017}
+\titlegraphic{\includegraphics[width=2cm]{./logos/logo_UFR_IM2AG.jpg}}
+\maketitle
+}
+#+END_EXPORT
+
+* Introduction
+Literate Programming (according to D. Knuth)
+- Explain the program logic using _natural language_
+- Imagine that *another person* will read it and try to understand
+  - ``another person'' can be yourself, in a near future
+
+\vfill
+\pause
+
+Concept can be applied in other contexts
+- Statistical analysis
+- Big data exploration
+- /anything that involves coding and interpretation/
+
+\vfill
+\pause
+
+Let me show you some examples (using Emacs + OrgMode)
+- Investigating observation intrusion
+- Prototyping /non-traditional/ visualization
+- Random notes in my daily journal
+\pause
+* Demonstration and Hands-on (TD3)
+Let's do it using RStudio (using knitR + R)
+- Live demonstration with synthetic data
+- Then, do it yourself with ``real'' data
+  - Ping-pong measurements for different message sizes
+  - Geophysics iteration duration
+
+\vfill
+
+Goals of TD3
+- Incorporate the spirit of literate programming
+- Basic statistical concepts (using R)
+  - Mean, Median, Min, Max
+  - Histograms, boxplots, summary
+- How to interact with RStudio (and get a nice looking PDF/HTML)
