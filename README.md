@@ -2,7 +2,9 @@
 
 Welcome to the Literate Programming public repository, part of the Miage L3.
 
-## TD1: Setup
+## TD Specifications
+
+### TD1: Setup
 
 1. Download and Install **git** and **RStudio** (take the free version)
    - Git: https://git-scm.com/downloads
@@ -51,7 +53,7 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
    
 Congratulations, you're done for the TD1.
 
-## TD2: Critical view for plots
+### TD2: Critical view for plots
 
 1. Create a directory `TD2` in your local repository
    - Run `mkdir TD2`
@@ -73,7 +75,7 @@ Congratulations, you're done for the TD1.
 
 Congratulations, you're done for the TD2.
 
-## TD3: Using RStudio for running a Statistical Analysis
+### TD3: Using RStudio for running a Statistical Analysis
 
 See the [Specification for the TD3](./TD3/TD3.Rmd). You need to repeat
 the analysis that has been presented for one of the provided data
@@ -82,6 +84,8 @@ application. You need to use RStudio to modify the given file, writing
 in your data interpretation of the results, and generating a PDF file
 at running knitr in the document (through the appropriate feature in
 RStudio).
+
+### TD4: Forthcoming
 
 ## Contact Information
 
