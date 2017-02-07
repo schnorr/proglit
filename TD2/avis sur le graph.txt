@@ -1,4 +1,10 @@
-Ce graphe est l'évolution des notes du bac de 1995 a 2012 sur lles trois types de bacs existant.
-L'échelle de base est cilbée sur la donnée.
-Cela permet d'améliorer la vu positive sur le bac général en diminuant celle sur le pprofessionnel, alors que les deux sont quand même autour de 80%
-La dispertion de 10% est donc completement disproportionnée. C'est une mauvaise reflection de la réalitée
+Ce graphe est l'Ã©volution des notes du bac de 1995 a 2012 sur lles trois types de bacs existant.
+L'Ã©chelle de base est cilbÃ©e sur la donnÃ©e.
+Cela permet d'amÃ©liorer la vu positive sur le bac gÃ©nÃ©ral en diminuant celle sur le pprofessionnel, alors que les deux sont quand mÃªme autour de 80%
+La dispertion de 10% est donc completement disproportionnÃ©e. C'est une mauvaise reflection de la rÃ©alitÃ©e
+La largeur du trait et leur couleur est dÃ©saventageuse pour certain.
+La nature des donnÃ©es qest differente (via la prÃ©vision)
+Les sources ne sont pas claire.
+La notation des abscisses n'est pas claire.
+Le choix du graph est appropriÃ© (Ã©volution).
+Il y a de la variabilitÃ©e
