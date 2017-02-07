@@ -8,8 +8,8 @@
 #+TITLE: Literate Programming
 
 #+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,presentation]
-#+OPTIONS:   H:1 num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,handout]
+#+OPTIONS:   H:1 author:nil date:nil num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+LATEX_HEADER: \usedescriptionitemofwidthas{bl}
 #+LATEX_HEADER: \usepackage{ifthen,figlatex,amsmath,amstext,xspace}
 #+LATEX_HEADER: \usepackage{boxedminipage,xspace,multicol}
