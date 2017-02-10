@@ -164,12 +164,15 @@ Some plots I've selected (from scientific articles)
 \includegraphics[width=.9\textwidth]{./selected/AmandineT-sugar.pdf}
 #+END_CENTER
 * MugnierJu (Mexico Exports)
-Interactive plot by the Huffington Post:
-- [[http://atlas.media.mit.edu/en/visualize/embed/tree_map/hs92/export/mex/show/all/2014/][Treemap Visualization]]
+
+The Huffington Post. Édition du 26/01/2017 11:02 CET.
+[[http://www.huffingtonpost.fr/2017/01/26/avec-ce-graphique-on-voit-mal-comment-le-mexique-pourra-refuser/]["Avec ce graphique, on voit mal comment le Mexique pourra refuser de payer le mur de Donald Trump"]]
 
 \bigskip
 
-[[http://www.huffingtonpost.fr/2017/01/26/avec-ce-graphique-on-voit-mal-comment-le-mexique-pourra-refuser/][Original report]]
+Interactive plot in the news article
+-
+  [[http://atlas.media.mit.edu/en/visualize/embed/tree_map/hs92/export/mex/show/all/2014/][Import Origins of Mexico (2014)]]
 * Nopest (NASA Budget)
 #+BEGIN_CENTER
 \includegraphics[width=.9\textwidth]{./selected/Nopest-NASA.pdf}
