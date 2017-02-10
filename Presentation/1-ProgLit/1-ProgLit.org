@@ -154,3 +154,26 @@ Goals of TD3
   - Mean, Median, Min, Max
   - Histograms, boxplots, summary
 - How to interact with RStudio (and get a nice looking PDF/HTML)
+* Emacs Setup                                                      :noexport:
+  This document has local variables in its postembule, which should
+  allow org-mode to work seamlessly without any setup. If you're
+  uncomfortable using such variables, you can safely ignore them at
+  startup. Exporting may require that you copy them in your .emacs.
+
+# Local Variables:
+# eval:    (require 'org-install)
+# eval:    (org-babel-do-load-languages 'org-babel-load-languages '( (sh . t) (R . t) (perl . t) (ditaa . t) ))
+# eval:    (setq org-confirm-babel-evaluate nil)
+# eval:    (setq org-alphabetical-lists t)
+# eval:    (setq org-src-fontify-natively t)
+# eval:    (add-hook 'org-babel-after-execute-hook 'org-display-inline-images) 
+# eval:    (add-hook 'org-mode-hook 'org-display-inline-images)
+# eval:    (add-hook 'org-mode-hook 'org-babel-result-hide-all)
+# eval:   (setq org-babel-default-header-args:R '((:session . "org-R")))
+# eval:   (setq org-export-babel-evaluate nil)
+# eval:   (setq ispell-local-dictionary "american")
+# eval:   (eval (flyspell-mode t))
+# eval:   (setq org-latex-title-command "")
+# eval:    (setq org-latex-listings 'minted)
+# eval:    (setq org-latex-minted-options '(("bgcolor" "Moccasin") ("style" "tango") ("numbers" "left") ("numbersep" "5pt")))
+# End:
