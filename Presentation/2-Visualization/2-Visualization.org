@@ -5,7 +5,7 @@
 #+STARTUP: indent
 #+TAGS: noexport(n)
 
-#+TITLE: Select Plots for Discussion about Data Visualization
+#+TITLE: Plots Set for Discussion about Data Visualization
 
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,handout]
@@ -117,7 +117,7 @@
 }
 #+END_EXPORT
 
-* TD2 select graphics for discussion
+* TD2 graphics for discussion
 Your plots
 - blondelq (Apple profits)
 - Tellen (BAC approval rate)
@@ -171,8 +171,7 @@ The Huffington Post. Édition du 26/01/2017 11:02 CET.
 \bigskip
 
 Interactive plot in the news article
--
-  [[http://atlas.media.mit.edu/en/visualize/embed/tree_map/hs92/export/mex/show/all/2014/][Import Origins of Mexico (2014)]]
+- [[http://atlas.media.mit.edu/en/visualize/embed/tree_map/hs92/export/mex/show/all/2014/][Import Origins of Mexico (2014)]]
 * Nopest (NASA Budget)
 #+BEGIN_CENTER
 \includegraphics[width=.9\textwidth]{./selected/Nopest-NASA.pdf}
