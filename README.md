@@ -5,7 +5,7 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
 ## Presentations
 
 - [General Introduction](./Presentation/0-Introduction/Transp-Prog-Lit-2017.pdf) - Course overview, goals, references and reproducibility
-- [Literate Programming](./Presentation/1-LitProg/1_LitProg.pdf) - Literate Programming Motivation & RStudio Case Study
+- [Literate Programming](./Presentation/1-LitProg/1-LitProg.pdf) - Literate Programming Motivation & RStudio Case Study
 
 ## TD Specifications
 
