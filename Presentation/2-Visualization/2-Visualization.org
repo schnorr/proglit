@@ -5,7 +5,7 @@
 #+STARTUP: indent
 #+TAGS: noexport(n)
 
-#+TITLE: Data Visualization
+#+TITLE: Select Plots for Discussion about Data Visualization
 
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,handout]
@@ -117,7 +117,8 @@
 }
 #+END_EXPORT
 
-* TD2 select graphics
+* TD2 select graphics for discussion
+Your plots
 - blondelq (Apple profits)
 - Tellen (BAC approval rate)
 - AlxLev (Stock exchange)
@@ -130,12 +131,10 @@
 
 \vfill
 
-Some plots I've selected (from articles)
-- HPC Regional School 2015 (ERAD)
-  - Papers 26 and 44 
-- Netperf (IPDPS 2003)
-- Martinez Accurate LoOgGP
-- 
+Some plots I've selected (from scientific articles)
+- HPC Regional School 2015 (ERAD) -- Papers 26 and 44 
+- Bell (IPDPS 2003)
+- Hoefler (IPDPS 2007)
 * blondelq (Apple profits)
 #+BEGIN_CENTER
 \includegraphics[width=.9\textwidth]{./selected/blondelq-plot-crop.pdf}
