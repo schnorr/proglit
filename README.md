@@ -14,7 +14,6 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
 2. [Critical view for plots](./TD2.espec.md)
 3. [Using RStudio for running a Statistical Analysis](./TD3.espec.md)
 4. [Combining RStudio and The Grammar of Graphics (of ggplot2)](./TD4.espec.md)
-   - Forthcoming
 
 ## Contact Information
 
