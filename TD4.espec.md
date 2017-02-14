@@ -23,3 +23,6 @@ the class.
   études économiques collecte, produit, analyse et diffuse des
   informations sur l’économie et la société françaises
   - https://www.insee.fr/fr/statistiques?debut=0&categorie=3
+
+- Multiple datasets from around the world
+  - https://vincentarelbundock.github.io/Rdatasets/datasets.html
