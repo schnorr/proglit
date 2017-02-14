@@ -1,0 +1,81 @@
+---
+title: "The Grammar of Graphics (of ggplot2)"
+author: "Lucas Mello Schnorr, Jean-Marc Vincent"
+date: "February 14, 2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is a demonstration of how ggplot works.
+
+An empty plot: understanding the layered nature of ggplot.
+
+```{r}
+library(ggplot2);
+ggplot();
+```
+
+There is no data plot yet. Let's use the **pressure** data set:
+
+```{r}
+pressure;
+```
+
+Let's plot the simplest case, just points and a line interpolating them.
+
+```{r}
+ggplot(data=pressure, aes(x=temperature, y=pressure)) + geom_point() + geom_line();
+```
+
+How to customize labels:
+
+```{r}
+ggplot(data=pressure, aes(x=temperature, y=pressure)) +
+    geom_point() +
+    geom_line() +
+    xlab("Temperature (deg C)") +
+    ylab("Pressure (mm of Hg)");
+```
+
+We can associate the size and color of points to other variables.
+
+```{r}
+ggplot(data=mtcars, aes(x=disp, y=hp, size=mpg, color=wt)) + 
+  geom_point();
+```
+
+Let's see the list of all aesthetics accepted by **geom_point()**:
+http://docs.ggplot2.org/current/geom_point.html
+
+Let's plot a histogram:
+
+```{r}
+str(cars);
+```
+
+```{r}
+ggplot(data=cars) +
+  geom_histogram(aes(x=dist));
+```
+
+Merge a histogram and the corresponding Probability Density Function (PDF).
+
+```{r}
+ggplot(cars, aes(x=dist)) +
+  geom_histogram(binwidth = 10)+
+  geom_density(aes(y=10 * ..count..));
+```
+
+Boxplot of speed, using a point to represent the mean value.
+```{r, fig.width=3, fig.height=5}
+ggplot(cars, aes(x=1, y=speed)) + geom_boxplot() + geom_point(y=mean(cars$speed));
+```
+
+Using facets to separate data.
+
+```{r}
+ggplot(mtcars, aes(x=hp, y=mpg)) + facet_wrap(~gear) + geom_point();
+```

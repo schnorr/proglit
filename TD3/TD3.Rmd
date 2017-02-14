@@ -1,5 +1,5 @@
 ---
-title: "Measuring and Analysis of Ping-Pong Time"
+title: "Measurement and Analysis of Ping-Pong Time"
 author: "Jean-Marc Vincent, Lucas Mello Schnorr"
 date: "January 2017"
 output:
