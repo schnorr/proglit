@@ -1,16 +1,16 @@
 ## TD4: Combining RStudio and The Grammar of Graphics (of ggplot2)
 
-Within RStudio, the goal is to employ the grammar of graphics
-(ggplot2) to create **one plot** of some data set provided by the
-student. The Rmd (R markdown) file should be enriched with an
-explanation of the plot. Students can use the examples given during
-the class.
+Within RStudio (using a brand new R Markdown script), the goal is to
+employ the grammar of graphics (ggplot2) to create **one plot** of
+some data set provided by the student or the professors. Students can
+use the examples given during previous classes but are strongly
+encouraged to use fresh data. The Rmd (R markdown) file should be
+enriched with an explanation of the plot, showing what it represents.
 
 1. Installing ggplot2: either through the "Install" button in RStudio, or with this command in the console:
      `install.packages("ggplot2");`
 
    Then, you might take a look into the [Contents of the ggplot2 class](./TD4/TD4.Rmd).
-
 
 2. Select some data set
    - It can be some data of your choice
