@@ -7,8 +7,7 @@ use the examples given during previous classes but are strongly
 encouraged to use fresh data. The Rmd (R markdown) file should be
 enriched with an explanation of the plot, showing what it represents.
 
-1. Installing ggplot2: either through the "Install" button in RStudio, or with this command in the console:
-     `install.packages("ggplot2");`
+1. In the console, install ggplot with: `install.packages("ggplot2");`
 
    Then, you might take a look into the [Contents of the ggplot2 class](./TD4/TD4.Rmd).
 
