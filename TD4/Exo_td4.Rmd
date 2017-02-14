@@ -1,0 +1,11 @@
+```{r}
+am <- read.csv("data/airmiles.csv");
+library(ggplot2);
+
+ggplot(data=am, aes(x=time, y=airmiles)) +
+    geom_point() +
+    geom_line() +
+    xlab("Time") +
+    ylab("Airmiles")
+
+```
