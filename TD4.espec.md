@@ -8,14 +8,12 @@ encouraged to use fresh data. The Rmd (R markdown) file should be
 enriched with an explanation of the plot, showing what it represents.
 
 1. In the console, install ggplot with: `install.packages("ggplot2");`
-
-   Then, you might take a look into the [Contents of the ggplot2 class](./TD4/TD4.Rmd).
-
-2. Select some data set
+2. Take a look into the [Contents of the ggplot2 class](./TD4/TD4.Rmd).
+   - Learn how to use the ggplot2 package and its verbs
+3. Select some data set
    - It can be some data of your choice
    - Or the ones already provided during the course (ping-pong, geophysics application)
-
-3. Create one plot to represent the data
+4. Create one plot to represent the data
    - Use ggplot2 verbs
    - Write a paragraph describing the plot
 
