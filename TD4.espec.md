@@ -16,3 +16,10 @@ the class.
 3. Create one plot to represent the data
    - Use ggplot2 verbs
    - Write a paragraph describing the plot
+
+### Data sets
+
+- L’Institut national de la statistique et des
+  études économiques collecte, produit, analyse et diffuse des
+  informations sur l’économie et la société françaises
+  - https://www.insee.fr/fr/statistiques?debut=0&categorie=3
