@@ -1,0 +1,20 @@
+### Emacs stuff
+\#*
+*~
+.Rhistory
+.DS_Store
+
+### LaTeX stuff
+*.vrb
+*.aux
+*.log
+*.bbl
+*.nav
+*.out
+*.mk
+*.toc
+*.snm
+*.pyg.*
+*.bak
+
+### Automatically generated files

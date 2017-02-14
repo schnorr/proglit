@@ -5,7 +5,7 @@
 #+STARTUP: indent
 #+TAGS: noexport(n)
 
-#+TITLE: Literate Programming
+#+TITLE: Plots Set for Discussion about Data Visualization
 
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,handout]
@@ -117,43 +117,87 @@
 }
 #+END_EXPORT
 
-* Introduction
-Literate Programming (according to D. Knuth)
-- Explain the program logic using _natural language_
-- Imagine that *another person* will read it and try to understand
-  - ``another person'' can be yourself, in a near future
-
-\vfill
-\pause
-
-Concept can be applied in other contexts
-- Statistical analysis
-- Big data exploration
-- /anything that involves coding and interpretation/
-
-\vfill
-\pause
-
-Let me show you some examples (using Emacs + OrgMode)
-- Investigating observation intrusion
-- Prototyping /non-traditional/ visualization
-- Random notes in my daily journal
-\pause
-* Demonstration and Hands-on (TD3)
-Let's do it using RStudio (using knitR + R)
-- Live demonstration with synthetic data
-- Then, do it yourself with ``real'' data
-  - Ping-pong measurements for different message sizes
-  - Geophysics iteration duration
+* TD2 graphics for discussion
+Your plots
+- blondelq (Apple profits)
+- Tellen (BAC approval rate)
+- AlxLev (Stock exchange)
+- mountameni (Prog. Lang. Ranking)
+- Jeremy38100 (French economy)
+- Etanlink (DDoS attacks)
+- AmandineT (Sugar consumption)
+- MugnierJu (Mexico Exports)
+- Nopest (NASA Budget)
 
 \vfill
 
-Goals of TD3
-- Incorporate the spirit of literate programming
-- Basic statistical concepts (using R)
-  - Mean, Median, Min, Max
-  - Histograms, boxplots, summary
-- How to interact with RStudio (and get a nice looking PDF/HTML)
+Some plots I've selected (from scientific articles)
+- HPC Regional School 2015 (ERAD) -- Papers 26 and 44 
+- Bell (IPDPS 2003)
+- Hoefler (IPDPS 2007)
+* blondelq (Apple profits)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/blondelq-plot-crop.pdf}
+#+END_CENTER
+* Tellen (BAC approval rate)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/Tellen-bac-crop.pdf}
+#+END_CENTER
+* AlxLec (Stock exchange)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/AlxLec-GrapheTD2-crop.pdf}
+#+END_CENTER
+* mountameni (Prog. Lang. Ranking)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/moutameni-PL-rank-crop.pdf}
+#+END_CENTER
+* Jeremy38100 (French Economy along the XX Century)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/Jeremy38100-plot.pdf}
+#+END_CENTER
+* Etanlink (DDoS attacks per target country)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/Etanlink-TD2-crop.pdf}
+#+END_CENTER
+* AmandineT (Sugar consumption)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/AmandineT-sugar.pdf}
+#+END_CENTER
+* MugnierJu (Mexico Exports)
+
+The Huffington Post. Édition du 26/01/2017 11:02 CET.
+[[http://www.huffingtonpost.fr/2017/01/26/avec-ce-graphique-on-voit-mal-comment-le-mexique-pourra-refuser/]["Avec ce graphique, on voit mal comment le Mexique pourra refuser de payer le mur de Donald Trump"]]
+
+\bigskip
+
+Interactive plot in the news article
+- [[http://atlas.media.mit.edu/en/visualize/embed/tree_map/hs92/export/mex/show/all/2014/][Import Origins of Mexico (2014)]]
+* Nopest (NASA Budget)
+#+BEGIN_CENTER
+\includegraphics[width=.9\textwidth]{./selected/Nopest-NASA.pdf}
+#+END_CENTER
+* HPC Regional School (ERAD) 2015
+- ([[http://www.lbd.dcc.ufmg.br/bdbcomp/servlet/Trabalho?id=22846][Paper 26]]) V Santos et. al. Perf. Study about the Int-Haar Library
+- ([[http://www.lbd.dcc.ufmg.br/bdbcomp/servlet/Trabalho?id=22875][Paper 44]]) M Serpa et. al. Optim. of a CFD application for GPUs
+#+BEGIN_CENTER
+\includegraphics[width=.45\textwidth]{./selected/mines/erad_2015_026.pdf}\hfill
+\includegraphics[width=.45\textwidth]{./selected/mines/erad_2015_044.pdf}
+#+END_CENTER
+* Eval. of Current High-Perf. Networks (in 2003)
+C Bell et al., *An evaluation of current high-performance networks*,
+2003 IEEE International Parallel and Distributed Processing Symposium
+(IPDPS). IEEE. DOI: 10.1109/IPDPS.2003.1213106
+#+BEGIN_CENTER
+\includegraphics[width=\textwidth]{./selected/mines/netperf-IPDPS-2003.pdf}
+#+END_CENTER
+* LogGP Parameter Assessment for Networks
+T Hoefler, A Lichei and W Rehm, *Low-Overhead LogGP Parameter
+Assessment for Modern Interconnection Networks*, 2007 IEEE
+International Parallel and Distributed Processing Symposium, Long
+Beach, CA, 2007, pp. 1-8.  doi: 10.1109/IPDPS.2007.370593
+#+BEGIN_CENTER
+\includegraphics[width=.7\textwidth]{./selected/mines/hoefler-pmeo07.pdf}
+#+END_CENTER
 * Emacs Setup                                                      :noexport:
   This document has local variables in its postembule, which should
   allow org-mode to work seamlessly without any setup. If you're
