@@ -20,7 +20,7 @@ enriched with an explanation of the plot, showing what it represents.
        - https://www.insee.fr/fr/statistiques?debut=0&categorie=3
      - Multiple datasets from around the world
        - https://vincentarelbundock.github.io/Rdatasets/datasets.html
-       - A selection has [already been made][./TD4/data/]
+       - A selection has [already been made](./TD4/data/)
 4. Create one plot to represent the data
    - Describe the data set you have chosen
      - Load the data
