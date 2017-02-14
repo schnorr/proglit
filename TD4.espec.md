@@ -9,6 +9,9 @@ the class.
 1. Installing ggplot2: either through the "Install" button in RStudio, or with this command in the console:
      `install.packages("ggplot2");`
 
+   Then, you might take a look into the [Contents of the ggplot2 class](./TD4/TD4.Rmd).
+
+
 2. Select some data set
    - It can be some data of your choice
    - Or the ones already provided during the course (ping-pong, geophysics application)
