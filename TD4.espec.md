@@ -22,6 +22,7 @@ enriched with an explanation of the plot, showing what it represents.
        - https://vincentarelbundock.github.io/Rdatasets/datasets.html
        - A selection has [already been made](./TD4/data/)
 4. Create one plot to represent the data
+   - In RStudio, create an R Markdown script
    - Describe the data set you have chosen
      - Load the data
    - Use ggplot2 verbs and write code to do the plot
