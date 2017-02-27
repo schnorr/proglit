@@ -9,7 +9,7 @@
 #+SUBTITLE: The =dplyr= way
 
 #+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames]
+#+LaTeX_CLASS_OPTIONS: [11pt,xcolor=dvipsnames,handout]
 #+OPTIONS:   H:1 author:nil date:nil num:t toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 #+LATEX_HEADER: \usedescriptionitemofwidthas{bl}
 #+LATEX_HEADER: \usepackage{ifthen,figlatex,amsmath,amstext,xspace}
@@ -121,7 +121,7 @@
 * Motivation
 /Institut national de la statistique et des études économiques/
 - First names given to newborns along years (/par départements français/)
-- [https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2015_txt.zip][Link to =dpt2015_txt.zip=]] (12.24Mb, zipped -- 85Mb pure text)
+- [[https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2015_txt.zip][Link to =dpt2015_txt.zip=]] (12.24Mb, zipped -- 85Mb pure text)
   - It has 3405311 rows (and one header line), 5 variables
 
 \vfill
