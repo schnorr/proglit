@@ -121,8 +121,8 @@
 * Motivation
 /Institut national de la statistique et des études économiques/
 - First names given to newborns along years (/par départements français/)
-- [[https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2015_txt.zip][Link to =dpt2015_txt.zip=]] (12.24Mb, zipped -- 85Mb pure text)
-  - It has 3405312 rows, 5 variables
+- [https://www.insee.fr/fr/statistiques/fichier/2540004/dpt2015_txt.zip][Link to =dpt2015_txt.zip=]] (12.24Mb, zipped -- 85Mb pure text)
+  - It has 3405311 rows (and one header line), 5 variables
 
 \vfill
 \pause
