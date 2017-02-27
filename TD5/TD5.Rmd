@@ -1,0 +1,101 @@
+---
+title: "Data Manipulation with dplyr"
+author: "Lucas Mello Schnorr, Jean-Marc Vincent"
+date: "February 28, 2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This is a demonstration of how dplyr works.
+
+First, we need some data.
+
+```{r}
+df <- data.frame(
+  name = c("John", "Mary", "Alice", "Peter", "Roger", "Phyllis"),
+  age = c(13, 15, 14, 13, 14, 13),
+  sex = c("Male", "Female", "Female", "Male", "Male", "Female")
+)
+head(df);
+```
+
+Load the necessary packages:
+
+```{r}
+library(dplyr);
+library(magrittr);
+```
+
+Learning how to use the pipe operator (%>%):
+
+```{r}
+df %>% head;
+```
+
+You can chain multiple pipes:
+
+```{r}
+df %>% head %>% nrow;
+```
+
+Now, let's use dplyr verbs, starting with _select()_ to select only one column:
+
+```{r}
+df %>% select(name);
+```
+
+You can also remove some column using the minus operator:
+
+```{r}
+df %>% select(-sex);
+```
+
+Now, let's use the _filter()_ verb (let's say we need only those of age 13):
+
+```{r}
+df %>% filter(age == 13);
+```
+
+If we need to re-order, we can use _arrange()_ (you can pass multiple variables as well):
+
+```{r}
+df %>% arrange(age);
+```
+
+And to create new columns, we can _mutate()_ (you can use existing variable names):
+
+```{r}
+df %>% mutate(birth = 2017 - age);
+```
+
+The _summarize()_ verb can be used to reduce data (to know the average age, for instance):
+
+```{r}
+df %>% summarize(mean_age = mean(age));
+```
+
+The _group_by()_ verb can be used to split data, apply some function and combine results (for example, to know the average age depending on sex):
+
+```{r}
+df %>% group_by(sex) %>% summarize(mean_age = mean(age));
+```
+
+We can also _group_by()_ by multiple variables (to see the number of occurrences of age/sex combinations):
+
+```{r}
+df %>% group_by(age, sex) %>% summarize(N=n());
+```
+
+How to use in combination with _ggplot()_:
+
+```{r, fig.width=2.5, fig.height=3}
+library(ggplot2);
+df %>%
+   group_by(sex) %>%
+   summarize(mean_age = mean(age)) %>%
+   ggplot(aes(x=sex, y=mean_age)) +
+          geom_point() + ylim(0,NA) + theme_bw();
+```
