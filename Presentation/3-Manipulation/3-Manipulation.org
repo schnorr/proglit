@@ -73,6 +73,7 @@
 #+LATEX_HEADER: }
 #+LATEX_HEADER: \newcommand{\prettysmall}{\fontsize{6}{8}\selectfont}
 #+LATEX_HEADER: \newcommand{\quitesmall}{\fontsize{8}{10}\selectfont}
+#+LATEX_HEADER: \usepackage{minted}
 
 #+LATEX_HEADER: \usepackage{tikzsymbols}
 #+LATEX_HEADER: \def\smiley{\Smiley[1][green!80!white]}
