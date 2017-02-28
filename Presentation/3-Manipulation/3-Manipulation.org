@@ -126,8 +126,42 @@
   - It has 3405311 rows (and one header line), 5 variables
 
 \vfill
-\pause
 
+\bgroup
+\scriptsize
+#+begin_src R :results output silent :session :exports none
+library(readr);
+df <- read_tsv ("/tmp/dpt2015.txt",
+                locale = locale(encoding = "ISO-8859-1"));
+#+end_src
+
+#+begin_src R :results output latex :session :exports both
+library(xtable);
+df %>% sample_n(6) %>% as.data.frame() %>% xtable(.);
+#+end_src
+\egroup
+
+#+RESULTS:
+#+BEGIN_EXPORT latex
+% latex table generated in R 3.3.2 by xtable 1.8-2 package
+% Tue Feb 28 09:23:07 2017
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrlllr}
+  \hline
+ & sexe & preusuel & annais & dpt & nombre \\ 
+  \hline
+1 &   2 & MATHILDA & 2009 & 33 & 5.00 \\ 
+  2 &   2 & ROSE-MARIE & 1964 & 41 & 3.00 \\ 
+  3 &   1 & EDOUARD & 1919 & 97 & 38.00 \\ 
+  4 &   1 & DIMITRI & 1981 & 02 & 13.00 \\ 
+  5 &   2 & LINOA & 2013 & 59 & 4.00 \\ 
+  6 &   1 & SÉBASTIEN & 1953 & 97 & 16.00 \\ 
+   \hline
+\end{tabular}
+\end{table}
+#+END_EXPORT
+* Motivation \to How to handle this amount of data?
 Some questions that may arise
 1. First name frequency evolves along time?
 2. What can we say about `` /Your name here/ '' (for each state, FR)?
