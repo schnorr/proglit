@@ -1,0 +1,55 @@
+---
+title: "The Grammar of Graphics (of ggplot2)"
+author: "Kyllian Perrin"
+date: "February 14, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Loadig ggplot 2 here
+
+```{r}
+library(ggplot2);
+```
+
+Loading some data
+
+```{r}
+nile <- read.csv("data/Nile.csv")
+```
+
+Let's see what is give us :
+
+```{r}
+nile
+```
+Cool, now let's do some ggplot !
+This one is okay, but we don't see many usefull informations
+
+```{r}
+ggplot(data=nile, aes(x=time, y=Nile)) + 
+  ylab("Depth of the Nile (mm)") +
+  xlab("Date (years)") +
+  geom_point() +
+  geom_line() +
+  theme_bw();
+```
+Let's try something else
+Let's mesure how many time a said depth is reached
+
+```{r}
+ggplot(data=nile) + 
+  ylab("Number of years occured") +
+  xlab("Depth(mm)") +
+  geom_histogram(aes(x=Nile)) +
+  theme_bw();
+```
+
+Let's try a boxplot now !
+With it we'll see how concentrated the levels are through the years !
+```{r}
+ggplot(nile, aes(x=1, y=Nile)) + geom_boxplot() + geom_point(y=mean(nile$Nile));
+```
