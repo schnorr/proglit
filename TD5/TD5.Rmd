@@ -32,13 +32,13 @@ library(magrittr);
 Learning how to use the pipe operator (%>%):
 
 ```{r}
-df %>% head;
+df %>% head(n=2);
 ```
 
 You can chain multiple pipes:
 
 ```{r}
-df %>% head %>% nrow;
+df %>% head(n=2) %>% nrow;
 ```
 
 Now, let's use dplyr verbs, starting with _select()_ to select only one column:
