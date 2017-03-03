@@ -17,6 +17,10 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
 4. [Combining RStudio and The Grammar of Graphics (of ggplot2)](./TD4.espec.md)
 5. [Data Manipulation with dplyr](./TD5.espec.md)
 
+## Additional resources
+
+- [RStudio Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/)
+
 ## Contact Information
 
 If you encounter any problem, please contact the professors by e-mail:
