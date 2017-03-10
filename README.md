@@ -17,6 +17,7 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
 3. [Using RStudio for running a Statistical Analysis](./TD3.espec.md)
 4. [Combining RStudio and The Grammar of Graphics (of ggplot2)](./TD4.espec.md)
 5. [Data Manipulation with dplyr](./TD5.espec.md)
+6. [Galilée et le Paradoxe du Duc de Toscane](./TD6.espec.md)
 
 ## Additional resources
 
