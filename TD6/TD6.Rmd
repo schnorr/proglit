@@ -1,0 +1,207 @@
+---
+title: 'Test d''hypothèse : un exemple'
+author: "Lucas Mello Schnorr, Jean-Marc Vincent"
+date: "March 06, 2017"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Galilée et le paradoxe du Duc de Toscane
+(À partir d’une activité proposée par l’ APMEP de la Réunion)
+
+Galilée (1554-1642) est surtout connu pour ses travaux en astronomie, faisant suite à son invention de la lunette astronomique. Cependant, il rédigea vers 1620 un petit mémoire sur les jeux de dés pour répondre à une demande du Duc de Toscane (Galilée est alors Premier Mathématicien de l’Université de Pise et Premier Philosophe du Grand Duc à Florence). Galilée est ainsi l’un des premiers avec Cardan à avoir écrit sur le "calcul des hasards", mais leurs écrits n’ont été publiés qu’après la célèbre correspondance entre Pascal et Fermat qui marque "officiellement" le début de la théorie des probabilités. Le mémoire de Galilée qui nous intéresse n’a été édité qu’en 1718. _GALILEI Galileo (1564-1642) : Sopra le scoperte dei dadis, solution du Problème du Grand Duc de Toscane (1620), publié en 1718. Extrait de Le Opere de Galileo Galilei, Firenze, 1855, vol. XIV, p. 293-316._
+
+### Présentation du paradoxe
+À la cour de Florence, de nombreux jeux de société étaient alors pratiqués. Parmi ceux-ci, l’un faisait intervenir la somme des numéros sortis lors du lancer de trois dés. Le Duc de Toscane, qui avait sans doute observé un grand nombre de parties de ce jeu, avait constaté que la somme 10 était obtenue légèrement plus souvent que la somme 9. Le paradoxe, que le Duc avait exposé à Galilée, réside dans le fait qu’il y a autant de façons d’écrire 10 que 9 comme sommes de trois entiers compris entre 1 et 6
+
+En effet, il y a 6 manières d'écrire 9 comme somme de 3 dés: 1+2+6, 1+3+5, 1+4+4, 2+2+5, 2+3+4, 3+3+3
+et il y a 6 manières d'écrire 10 : 1+3+6, 1+4+5, 2+2+6, 2+3+5, 2+4+4, 3+3+4
+
+
+### Expérimentation 
+Construction de l'environnement de simulation: 
+
+*générateur de dé à $k$ faces*: les appels successifs à la foncion Dice(faces,n) sont modélisés par une séquence de $n$ d variables aléatoires indépendantes de même loi uniforme dans $\{1,\cdots, faces\}$.
+
+```{r}
+dice <- function(faces = 6, n = 100)
+{
+  sample(x = seq(from = 1, to = faces, by = 1), size=n, replace=TRUE);
+}
+
+# génère 10 tirages d'un dé à 6 faces
+dice(6,471)
+```
+Expérience du Duc de Toscane : on génère un échantillon de $n$ observations de jetés de $3$ dés 
+```{r}
+
+experiment <- function (faces = 6, n = 100)
+{
+  dice1 <- dice(faces, n);
+  dice2 <- dice(faces, n);
+  dice3 <- dice(faces, n);
+
+  data.frame(Dice1 = dice1,
+             Dice2 = dice2,
+             Dice3 = dice3);
+}
+# génère une expérience de 5 tirages de 3 dés à 6 faces
+experiment(6,5)
+```
+
+### Somme de $3$ dés, répartition
+On génère une expérience et on calcule la somme des $3$ dés :
+
+```{r}
+library(dplyr);
+experiment(6,471) %>%
+  mutate(Sum = Dice1 + Dice2 + Dice3) %>%
+  group_by(Sum) %>%
+  summarize(N=n());
+# calcule le nombre d'occurrences de chaque valeur possible de somme
+```
+
+Extraction des lignes concernées
+
+```{r}
+faces = 6 ;
+n = 471 ;
+experiment(faces,n) %>%
+  mutate(Sum = Dice1 + Dice2 + Dice3) %>%
+  group_by(Sum) %>%
+  summarize(N=n()) %>%
+  filter((Sum == 9)|(Sum == 10));
+```
+
+Visualisation de la distribution
+
+```{r}
+library(ggplot2);
+
+faces = 6 ;
+n = 471 ;
+
+experiment(faces,n) %>%
+  mutate(Sum = Dice1 + Dice2 + Dice3) %>%
+  ggplot(aes(x=as.factor(Sum))) +
+    geom_bar(aes(y = (..count..)/sum(..count..)), width = .3) +
+    xlab("Valeur de la somme")+ylab ("Fréquence") +
+    ylim (0, NA) +
+    theme_bw()
+```
+
+Faire l'essai avec plusieurs tailles d'échantillon, que peut-on remarquer ?
+```{r}
+library(gridExtra);
+
+Toscane <- function(faces =6, n = 100)
+{
+  experiment(faces,n) %>%
+    mutate(Sum = Dice1 + Dice2 + Dice3) %>%
+    ggplot(aes(x=as.factor(Sum))) +
+    geom_bar(aes(y = (..count..)/sum(..count..)), width = .3) +
+    xlab("Valeur de la somme")+ylab ("Fréquence") +
+    ggtitle(paste("Taille de l'échantillon : ",n)) +
+    # à modifier pour adapter et utiliser les facets
+    ylim (0, 0.15) +
+    theme_bw()
+}
+Plot1 = Toscane(n=10);
+Plot2 = Toscane(n=100);
+Plot3 = Toscane(n=1000);
+Plot4 = Toscane(n=10000);
+Plot5 = Toscane(n=100000);
+Plot6 = Toscane(n=1000000);
+
+grid.arrange(Plot1,Plot2,Plot3,Plot4,Plot5,Plot6);
+
+
+```
+
+### Confiance dans le résultat 
+(un merci à Arnaud Legrand)
+
+Le calcul effectué compte la proportion de $9$ dans l'échantillon généré par l'expérience. Il produit donc une estimation de la valeur $p_9$ (probabilité d'obtenir $9$ comme somme de 3 variables aléatoires indépendantes uniformes sur $\{1,\cdots, 6\}$). Cette estimation est  une approximation et il serait intéressant de déterminer la qualité de cette approximation.
+
+Soit X_1, X_2, … une suite de variables aléatoires réelles, indépendantes et identiquement distribuées suivant la même loi D. On considère la somme $S_n = X_1 + X_2 + … + X_n$ et  $Y_n=\frac{S_n}{n}$
+
+### Loi des grands nombres (faible)
+
+\[\forall \varepsilon>0, \;\;\lim_{n\to\infty}\mathbb{P}(|\frac 1n(X_1+X_2+\cdots+X_n)-\mathbb{E}X)|\geq \varepsilon)=0
+\]
+
+## Loi des grands nombres (forte)
+
+\[
+\mathbb{P}(\lim_{n\to\infty} Y_n=\mathbb{E}X)=1
+\]
+
+## Théorème central limite
+On suppose que l'espérance $\mu$ et l'écart-type $\sigma$ de D existent avec $\sigma\neq 0$
+
+On montre facilement que $\frac {S_n}n$ est d'espérance $\mu$ et d'écart type $\sigma\sqrt{n}$. Ce qui est moins évident, c'est que la loi normale $\mathcal{N}(n\mu,n\sigma^2)$ est une bonne approximation de $\frac {S_n}n$. 
+
+Si on définit $Z_n=\sqrt{n}\frac{Y_n-\mu}{\sigma}$, $Z_n$ converge en loi vers $\mathcal{N}(0,1)$.
+
+## Quelques illustration du théorème central limite
+
+```{r}
+library(ggplot2)
+# library(plyr)
+set.seed(42);
+
+triangle <- function(n=10) {
+  sqrt(runif(n)) 
+}
+
+broken <- function(n=10) {
+  x=runif(n);
+  x/(1-x);
+}
+
+broken_mid <- function(n=10) {
+  x=(runif(n)+runif(n))/2;
+  x/(1-x);
+}
+
+
+generate <- function(n=1000,N=c(1,2,5,10,15,20,30,100), law=c("unif","binom","triangle")) {
+  df=data.frame();
+  for(l in law) {
+    for(p in N) {
+      X=rep.int(0,n);
+      for(i in 1:p) {
+        X = X + switch(l, unif = runif(n),
+                          binom = rbinom(n,1,.5), 
+                          exp=rexp(n,rate = 2), 
+                          norm=rnorm(n,mean = .5),
+                          triangle=triangle(n)-1/6,
+                          broken=broken(n),
+                          broken_mid=broken_mid(n));
+      }
+      X = X/p;
+      df=rbind(df,data.frame(N=p,SN=X,law=l));
+    }
+  } 
+  df;
+}
+d=generate()
+```
+
+```{r, echo=FALSE}
+ggplot(data=d,aes(x=SN)) + geom_histogram(aes(y = ..density..),binwidth=.05) + facet_grid(law~N) + theme_bw()
+```
+
+On converge donc bien vers un dirac. C'est la loi faible des grands nombres.
+
+Renormalisons les choses (i.e., zoomons avec le bon facteur d'échelle qui est de $\sqrt{N}$). 
+```{r, echo=FALSE}
+ggplot(data=d,aes(x=SN*sqrt(N))) + geom_histogram() + facet_grid(law~N,scales="free", space="free") + theme_bw()
+```
+
+On obtient alors une belle gaussienne. La largeur varie d'une loi à l'autre car toutes les lois de départ n'ont pas la même variance...
