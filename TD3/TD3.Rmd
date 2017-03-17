@@ -3,11 +3,11 @@ title: "Measurement and Analysis of Ping-Pong Time"
 author: "Jean-Marc Vincent, Lucas Mello Schnorr"
 date: "January 2017"
 output:
+  html_document: default
   pdf_document:
     number_sections: yes
-  html_document: default
-geometry: margin=1.5in, top=0.5in, bottom=0.5in
 subtitle: A RStudio Demonstration and Statistical Analysis Draft
+geometry: margin=1.5in, top=0.5in, bottom=0.5in
 ---
 
 ```{r setup, include=FALSE}
@@ -54,7 +54,7 @@ The `set.seed` call is here only to keep the synthetic analysis fully reproducib
 To read the synthetic ping-pong measurements, the code below reads the file `pp-synthetic.csv` and creates the data frame `df`. This data frame has a single column called `time` which contains all measurements that have been previously generated.  The call to `head(df)` lists the first rows of the data frame.
 
 ```{r}
-df <- read.csv("pp-synthetic.csv", header=TRUE, col.names=c("time"))
+df <- read.csv("data/IterDuration.csv", header=TRUE, col.names=c("time"))
 head(df);
 ```
 
@@ -66,7 +66,9 @@ The best way to get an overview is to plot the data (see below). Unaware of the 
 - Quantify the variability (sd)
 
 ```{r, fig.width=6, fig.height=3.5}
-plot(df$time, ylab="Time (seconds)", xlab="Measurement Number");
+dfhead <- head(df$time,200);
+dftail <- tail(df$time,length(df$time)-length(dfhead));
+plot(dfhead, ylab="Time (seconds)", xlab="Measurement Number");
 ```
 
 
@@ -84,7 +86,7 @@ We can see that the mean estimation is `3.946`, while the median gives `3.849`. 
 
 A much nicer way to represent the metrics of the summary above is using a boxplot. It takes all the values and create a visual representation. Can you explain what represents each element of the boxplot? How it helps you to better understand the data?
 ```{r, fig.width=2, fig.height=3.5}
-boxplot(df$time, ylab="Time (seconds)")
+boxplot(dftail, ylab="Time (seconds)")
 ```
 
 ## Histogram
@@ -121,9 +123,9 @@ Which are slightly different from the true values.
 
 The measurements detailed in the introduction have been obtained for a number of different message sizes. We provide five of them here, with the following names:
 
-```{bash}
-ls data/PP_size*.csv
-```
+#```{bash}
+#ls data/PP_size*.csv
+#```
 
 From 1 to 5 bytes. You should repeat all the steps of previous section using at least one of these files. Write your stastitical interpretation of the measurements. Here's how you can read one of them.
 
