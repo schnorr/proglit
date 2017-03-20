@@ -2,6 +2,10 @@
 
 Welcome to the Literate Programming public repository, part of the Miage L3.
 
+## Final Project
+
+- [Specification of the **Mini-Projet**](./Project.espec.md)
+
 ## Presentations
 
 - [General Introduction](./Presentation/0-Introduction/Transp-Prog-Lit-2017.pdf) - Course overview, goals, references and reproducibility
