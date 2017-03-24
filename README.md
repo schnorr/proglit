@@ -14,6 +14,15 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
     - Alexandre et Badr: *Français de l'étranger 2001-2013*
     - Moutameni et Marco: *Global Terrorism Database 1970 - 2016*
   - G1
+    - Aladin et Lucas: *Taux de pollution aux États-Unis de 2000 à 2016*
+    - Lucas et Antoine: *Dépenses des administrations publiques ventilées par fonction au cours du temps*
+    - Anis et Assane: *International Debt Statistics*
+    - Quentin et Andréas: *Recommend video games from 200k steam user interactions*
+    - Carine et Damien: *2K+ craft canned beers from the US and 500+ breweries in the United States*
+    - Laurent et Hanene: *World Happiness Report 2015 et 2016*
+    - Marie et Kathleen: ?
+    - Pablo et ?: ?
+    - Jimmy, Jules, Quentin sans groupe?
 
 ## Presentations
 
