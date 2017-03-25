@@ -4,6 +4,11 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
 
 ## Final Project
 
+Le mini-projet doit être rendu le **vendredi 31 mars avant minuit**,
+sur le git avec un fichier R markdown (Rmd). Nous envisageons une
+présentation "ultra-courte" (5 minutes) pour convaincre, pendant la
+semaine du 10 avril.
+
 - [Specification of the **Mini-Projet**](./Project.espec.md)
 - Groups and chosen subjects
   - G2
