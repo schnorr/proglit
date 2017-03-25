@@ -5,6 +5,7 @@ Welcome to the Literate Programming public repository, part of the Miage L3.
 ## Final Project
 
 - [Specification of the **Mini-Projet**](./Project.espec.md)
+- Groups and chosen subjects
   - G2
     - Baptiste et Dylan: *Consommation d'alcool chez les etudiants portugais*
     - Julien et Anthony: *Kaggle, Homicide Reports, 1980-2014*
