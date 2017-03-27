@@ -26,7 +26,7 @@ semaine du 10 avril.
     - Quentin et Andréas: *Recommend video games from 200k steam user interactions*
     - Carine et Damien: *2K+ craft canned beers from the US and 500+ breweries in the United States*
     - Laurent et Hanene: *World Happiness Report 2015 et 2016*
-    - Marie et Kathleen: ?
+    - Marie et Kathleen: *Médailles obtenues aux jeux olympiques d'hiver de 1924 à 2010*
     - Pablo et ?: ?
     - Jimmy, Jules, Quentin sans groupe?
 
