@@ -28,7 +28,7 @@ semaine du 10 avril.
     - Laurent et Hanene: *World Happiness Report 2015 et 2016*
     - Marie et Kathleen: *Médailles obtenues aux jeux olympiques d'hiver de 1924 à 2010*
     - Pablo et Jules: *Linux Kernel Git Revision History*
-    - Jimmy, Jules, Quentin sans groupe?
+    - Jimmy, Quentin sans groupe?
 
 ## Presentations
 
