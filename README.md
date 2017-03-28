@@ -27,7 +27,7 @@ semaine du 10 avril.
     - Carine et Damien: *2K+ craft canned beers from the US and 500+ breweries in the United States*
     - Laurent et Hanene: *World Happiness Report 2015 et 2016*
     - Marie et Kathleen: *Médailles obtenues aux jeux olympiques d'hiver de 1924 à 2010*
-    - Pablo et ?: ?
+    - Pablo et Jules: *Linux Kernel Git Revision History*
     - Jimmy, Jules, Quentin sans groupe?
 
 ## Presentations
