@@ -20,6 +20,7 @@ présentation "ultra-courte" (5 minutes) pour convaincre, entre le mardi 11 et l
     - Sory et Ali: *Les indicateur de résultats des lycées 2014 enseignement général, technologique et professionnel*
     - Alexandre et Badr: *Français de l'étranger 2001-2013*
     - Moutameni et Marco: *Global Terrorism Database 1970 - 2016*
+    - Jeremy et Thomas: *Ensemble des faits constatés par les services de police par département de 1996 à 2011*
   - G1
     - Aladin et Lucas: *Taux de pollution aux États-Unis de 2000 à 2016*
     - Lucas et Antoine: *Dépenses des administrations publiques ventilées par fonction au cours du temps*
