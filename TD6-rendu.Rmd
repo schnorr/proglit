@@ -1,0 +1,93 @@
+---
+title: "Data Manipulation with dplyr"
+author: "Damien Délouès"
+date: "March 10, 2017"
+output: pdf_document
+---
+
+
+```{r}
+dice <- function(faces = 6, n = 100)
+{
+  sample(x = seq(from = 1, to = faces, by = 1), size = n, replace = TRUE);
+}
+
+# génère 400 tirages d'un dé à 6 faces
+dice(6,400)
+```
+
+
+
+```{r}
+experiment <- function(faces = 6, n = 100)
+{
+  dice1 <- dice(faces, n);
+  dice2 <- dice(faces, n);
+  dice3 <- dice(faces, n);
+  
+  data.frame(Dice1 = dice1,
+             Dice2 = dice2,
+             Dice3 = dice3);
+  
+}
+
+# génère une expérience de 400 tirages de 3 dés à 6 faces
+experiment(6, 400)
+```
+
+
+```{r}
+library(dplyr);
+library(ggplot2)
+experiment(faces = 6, n = 100000) %>%
+  mutate(Somme = Dice1 + Dice2 + Dice3) %>%
+  group_by(Somme) %>%
+  summarize(N=n()) %>%
+  mutate(P=N/100000) %>%
+  ggplot(aes(x=as.factor(Somme), y=P)) + geom_point()
+```
+
+
+```{r}
+library(dplyr);
+library(ggplot2)
+experiment(faces = 6, n = 100000) %>%
+  mutate(Somme = Dice1 + Dice2 + Dice3) %>%
+  ggplot(aes(x=as.factor(Somme))) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), width = .3) +
+  xlab("Valeur de la somme") + ylab("Fréquence") +
+  ylim (0, NA) +
+  theme_classic()
+```  
+  
+```{r}
+library(gridExtra);
+
+Toscane <- function(faces=6, n=100)
+
+{
+  experiment(faces, n) %>%
+  mutate(Somme = Dice1 + Dice2 + Dice3) %>%
+  ggplot(aes(x=as.factor(Somme))) +
+    geom_bar(aes(y = (..count..)/sum(..count..)), width = .3) +
+    xlab ("Valeur de la somme") +
+    ylab("Fréquence") +
+    ggtitle("Taille de l'échantillon : ", n) +
+    ylim(0,0.15) +
+    theme_bw()
+}
+Plot1 = Toscane(n=10)
+Plot2 = Toscane(n=100)
+Plot3 = Toscane(n=1000)
+Plot4 = Toscane(n=10000)
+Plot5 = Toscane(n=100000)
+Plot6 = Toscane(n=1000000)
+
+grid.arrange(Plot1, Plot2, Plot3, Plot4, Plot5, Plot6)
+
+
+```
+  
+  
+  
+  

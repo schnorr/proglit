@@ -1,0 +1,24 @@
+---
+title: "The airmiles across the years"
+author: "Damien Délouès-Dutruge"
+date: "February 20, 2017"
+output: pdf_document
+---
+
+Here we have a data table per year (from 1937 to 1960) the longest distance in airmiles, wich can be flight by a plane.
+
+
+```{r}
+am <- read.csv("data/airmiles.csv");
+library(ggplot2);
+
+ggplot(data=am, aes(x=time, y=airmiles)) +
+    geom_point() +
+    geom_line() +
+    xlab("Year") +
+    ylab("Distance")
+
+```
+
+The grpahic shows us that almost every year the distance increases.
+Except maybe in 1946, 47, 48 and 1957, 58, where we can see stagnating zones.

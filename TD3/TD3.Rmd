@@ -138,5 +138,10 @@ Geophysics parallel applications are generally organized in timesteps. At each t
 
 ```{r}
 df <- read.csv("data/IterDuration.csv");
+df <- read.csv("data/PP_size_1.csv");
+df <- read.csv("data/PP_size_2.csv");
+df <- read.csv("data/PP_size_3.csv");
+df <- read.csv("data/PP_size_4.csv");
+df <- read.csv("data/PP_size_5.csv");
 head(df);
 ```

@@ -1,0 +1,62 @@
+---
+title: "Data Manipulation with dplyr"
+author: "Damien Délouès"
+date: "March 3, 2017"
+output: pdf_document
+---
+
+Chargement du fichier dans df
+
+```{r}
+library(readr);
+df <- read_tsv (file = "../../../dpt2015.txt",
+locale = locale(encoding = "ISO-8859-1"));
+```
+
+
+```{r}
+library(xtable);
+df %>% sample_n(6) %>% as.data.frame() %>% xtable(.);
+```
+
+
+
+You can also remove some column using the minus operator:
+
+```{r}
+df %>% select(-nombre);
+```
+
+Now, let's use the _filter()_ verb (let's say we need only those of age 13):
+
+```{r}
+df %>% filter(preusuel == 'DAMIEN');
+```
+
+
+
+```{r}
+df %>% group_by(preusuel, annais) %>% summarize(N=n()) %>% filter(preusuel == 'DAMIEN')
+```
+
+How to use in combination with _ggplot()_:
+
+```{r, fig.width=18, fig.height=10}
+library(ggplot2);
+df %>% group_by(preusuel, annais) %>% summarize(N=n()) %>% filter(preusuel == 'DAMIEN') %>%
+       ggplot(aes(x=annais, y=N)) +
+          geom_point() +
+          geom_line() +
+          xlab("annais") +
+          ylab("N")
+```
+
+```{r, fig.width=18, fig.height=10}
+library(ggplot2);
+df %>% group_by(preusuel, dpt) %>% summarize(N=n()) %>% filter(preusuel == 'DAMIEN') %>% arrange(dpt) %>%
+       ggplot(aes(x=dpt, y=N)) +
+          geom_point() +
+          geom_line() +
+          xlab("dpt") +
+          ylab("N")
+```

@@ -1,0 +1,70 @@
+---
+title: "MiniProjet"
+author: "AMIN Carine - DELOUES Damien"
+date: "March 30, 2017"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+We have chosen to do an analysis on the alcholic content by volume using Craft beers Dataset.
+
+```{r}
+library(ggplot2);
+library(dplyr);
+
+beerRaw <- read.csv(file="beers.csv")
+```
+
+
+
+After loading the data on R Studio, we have selected the columns "style" and "abv", since these 2 columns are the ones we're going to analyse, then we realised that there are NA values in the "abv" column. So we decided to omit them using the function "na.omit()".
+
+Firstly, we decided to do a "boxplot" to have an overview on our selection.
+
+```{r,fig.height=6,fig.width=4}
+ beerRaw %>% select(style, abv) %>% na.omit(beerRaw) -> beer
+ boxplot(x=beer$abv)
+
+```
+
+As we can see, we have a high standard deviation which indicates that the data points are spread out over a wider range of values. 
+We deduce that we have a wide range of beer styles, probably because there are a lot of small breweries that produce original beer styles to attract customers.
+
+We did a graph using "ggplot".
+```{r,fig.height=12,fig.width=6}
+ beer %>% group_by(style) %>% summarize(NbBiere=n(),MoyenneAbv=mean(abv)) -> beer2
+ 
+ beer2 %>% ggplot(aes(x=MoyenneAbv, y=style)) + geom_point()  + xlab("Average %") +ylab("Beer style")  + theme(axis.text.x =     element_text(angle = 90 )) +  scale_x_continuous(breaks = seq(0,0.15,by=0.005))
+```
+
+
+On the vertical axis we have the different beers style, and on the horizontal axisa rate of the alcoholic content by volume.
+With this graphic, we can see that we have a majority of the style have an alcholic content between 4% and 8.5%.
+The most alcoholic one is the "English BarleyWine" with more than 10.5% of alchol, and the loess one is the "Low Alcohol Beer" with almost 0%.
+We can conclude that the data are quite spread out.
+
+Sadly, the amount of production is missing in the dataset, so we can not say anything about the market consumption.
+It would have benn interesting to have the data, and be able to say if the most consumed beers are the strongest or the lightest.
+
+
+
+In a second time we decided to relate the average alcoholic content per beer style with the average size of a beer per style, and see if there is any link between those variables that we can make. 
+
+```{r,}
+beerRaw %>% select(style, abv, ounces) %>% na.omit(beerRaw) -> beer3
+
+beer3 %>% group_by(style) %>% summarize(NbBiere=n(), MoyenneAbv=mean(abv), MoyenneOunces=mean(ounces)) -> beer4
+ 
+beer4 %>% ggplot(aes(x=MoyenneOunces, y=MoyenneAbv)) +
+          geom_point() + 
+          xlab("Average ounces") + 
+          ylab("Average abv")  + 
+          theme(axis.text.x = element_text(angle = 90 ))
+```
+
+We could think that more the style has an alcoholic content, smaller is the size.
+
+But with the graph, we can see that our hypothesis is false. A large part of the data are focus on the same area. Except few of them which are beside.
+So we can not conclude any link between the average size of the beer style and his alcoholic content.

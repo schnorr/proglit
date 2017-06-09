@@ -1,0 +1,18 @@
+---
+title: "Data Manipulation with dplyr"
+author: "Damien Délouès"
+date: "March 17, 2017"
+output: pdf_document
+---
+
+```{r}
+library(dplyr);
+library(ggplot2)
+experiment(faces = 6, n = 1000000) %>%
+  mutate(Somme = Dice1 + Dice2 + Dice3) %>%
+  ggplot(aes(x=as.factor(Somme))) +
+  geom_bar(aes(y = (..count..)/sum(..count..)), width = .3) +
+  xlab("Valeur de la somme") + ylab("Fréquence") +
+  ylim (0, NA) +
+  theme_classic()
+```
